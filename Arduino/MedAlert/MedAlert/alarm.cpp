@@ -12,7 +12,9 @@ void ALARM_init() {
 //Setter på alarm
 void ALARM_on(){
   setColor(255,0,0);
+  for (int a = 0 ; a < 10; a ++) {
   PITCH_play();
+    }
   }
   
  //Slår av alarm
