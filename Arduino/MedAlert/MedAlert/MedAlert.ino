@@ -18,10 +18,6 @@
 #include "pitches.h"
 #include "button.h"
 
-#include <Wire.h>
-#include <LCD.h>
-#include <LiquidCrystal.h>
-#include <LiquidCrystal_I2C.h>
 
 /************************************ STATES **********************************/
 t_state s_fatal_err, s_init, s_init_timer, s_init_wifi, s_init_udp, s_listen;
@@ -111,6 +107,10 @@ void s_listen_signal(t_sig *s) {
 
 
 void setup() {
+ 
+ BUTTON_init();
+ attachInterrupt(BUTTONPIN, BUTTON_isr, CHANGE);
+ 
   s_fatal_err   = { .onEnter       = s_fatal_err_enter, 
                     .onExit        = NULL, 
                     .onSignal      = NULL,
