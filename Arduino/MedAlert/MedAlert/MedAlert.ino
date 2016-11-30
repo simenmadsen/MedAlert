@@ -109,7 +109,7 @@ void s_listen_signal(t_sig *s) {
 void setup() {
  
  BUTTON_init();
- attachInterrupt(BUTTONPIN, BUTTON_isr, CHANGE);
+ attachInterrupt(digitalPinToInterrupt(BUTTONPIN), BUTTON_isr, CHANGE);
  
   s_fatal_err   = { .onEnter       = s_fatal_err_enter, 
                     .onExit        = NULL, 
